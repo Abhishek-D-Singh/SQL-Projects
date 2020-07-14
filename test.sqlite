@@ -1,0 +1,36 @@
+--RPA Fraud Detetction.
+
+ --EXPLORING THE DATABASE TABLE TRANSACTION_DATA
+ SELECT * 
+ FROM transaction_data
+ LIMIT 10;
+
+ --FINDING THE DETAILS OF AN SUSPICIOUS FRADULENT TRANSACTION BASED ON ZIP CODE.
+ SELECT full_name, email 
+ FROM transaction_data
+ WHERE zip = '20252';
+
+ --QUERY TO FIND THE NAMES AND EMAILS ASSSOCIATED WITH THESE TRANSACTIONS USING PSEUDONYMS.
+ SELECT full_name, email
+ FROM transaction_data
+ WHERE full_name = 'Art Vandelay' 
+ or full_name LIKE '% der %';
+
+ --FINDING THE EMAILS AND IP_ADDRESSES FOR IRREGULARITIES IN IP_ADDRESS.
+ SELECT ip_address, email
+ FROM transaction_data
+ WHERE ip_address LIKE '10%';
+
+ --FINDING THE EMAILS WHOSE DOMAIN INFORMATION IS KNOWN.
+ SELECT email
+ FROM transaction_data
+ WHERE email LIKE '%temp_email.com';
+
+--FINDING THE EXACT TRASNCATION WHEN IP_ADRESS AND FULL_NAME PARTIAL INFORMATION IS KNOWN.
+ SELECT *
+ FROM transaction_data
+ WHERE ip_address LIKE '120.%'
+ and full_name LIKE 'John%';
+
+
+
